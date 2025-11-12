@@ -4,43 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MassConverter</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="massstyles.css">
 </head>
 <body>
-    <form>  
-        <h1>Mass Converter</h1>
-        <input type="number" id="input" placeholder="Enter mass"><br>
-        <!--<div>
-            <select name="input">
-                <optgroup label="Mass Units">
-                    <option value="Kilograms">Kilograms</option>
-                    <option value="Grams">Grams</option>
-                    <option value="Ton">Metric Ton</option>
-                </optgroup>
-            </select>
-        </div><br>-->
-        <div class="optionsContainer">
-            <div id ="leftOptions">
-                <input type="radio" id="KgtoLb" name="unit">
-                <label for="KgtoLb">Kilograms to Pounds</label><br>
-                <input type="radio" id="KgtoOz" name="unit">
-                <label for="KgtoOz">Kilograms to Ounces</label><br>
-                <input type="radio" id="LbtoOz" name="unit">
-                <label for="LbtoOz">Pounds to Ounces</label>
+    <div class="formContainer">
+        <form>  
+            <h1>Mass Converter</h1>
+            <input type="number" id="input" placeholder="Enter mass"><br>
+            <div class="optionsContainer">
+                <div id ="leftOptions">
+                    <input type="radio" id="KgtoLb" name="unit">
+                    <label for="KgtoLb">Kilograms to Pounds</label><br>
+                    <input type="radio" id="KgtoOz" name="unit">
+                    <label for="KgtoOz">Kilograms to Ounces</label><br>
+                    <input type="radio" id="LbtoOz" name="unit">
+                    <label for="LbtoOz">Pounds to Ounces</label>
+                </div>
+                <div id="rightOptions">
+                    <input type="radio" id="LbtoKg" name="unit">
+                    <label for="LbtoKg">Pounds to Kilograms</label><br>
+                    <input type="radio" id="Oztokg" name="unit">
+                    <label for="Oztokg">Ounces to Kilograms</label><br>
+                    <input type="radio" id="Oztolb" name="unit">
+                    <label for="Oztolb">Ounces to Pounds</label>
+                </div>
             </div>
-            <div id="rightOptions">
-                <input type="radio" id="LbtoKg" name="unit">
-                <label for="LbtoKg">Pounds to Kilograms</label><br>
-                <input type="radio" id="Oztokg" name="unit">
-                <label for="Oztokg">Ounces to Kilograms</label><br>
-                <input type="radio" id="Oztolb" name="unit">
-                <label for="Oztolb">Ounces to Pounds</label>
-            </div>
-        </div>
-        <button type="submit" id="convertbtn">Convert</button>
-        <p id="result">select a unit</p>
+            <button type="submit" id="convertbtn">Convert</button>
+            <p id="result">select a unit</p>
 
-    </form>
+        </form>
+        <form>
+            <h1>Mass SI unit Converter</h1>
+            <input type="number" id="inputSI" placeholder="Enter Mass"><br>
+            <div class="dropDownContainer">
+                <label for="unitFrom">From</label>
+                <select id="unitFrom">
+                    <option value="">--Select Unit--</option>
+                    <option value="ug">Micrograms</option>
+                    <option value="mg">Miligrams</option>
+                    <option value="g">Grams</option>
+                    <option value="kg">Kilograms</option>
+                    <option value="ton">Metric Tons</option>
+                    <option value="mgton">Megatons</option>
+                    <option value="ggton">Gigatons</option>
+                    <option value="trton">Teratons</option>
+                </select>
+
+                <label for="unitTo">To</label>
+                <select id="unitTo">
+                    <option value="">--Select Unit--</option>
+                    <option value="ug">Micrograms</option>
+                    <option value="mg">Miligrams</option>
+                    <option value="g">Grams</option>
+                    <option value="kg">Kilograms</option>
+                    <option value="ton">Metric Tons</option>
+                    <option value="mgton">Megatons</option>
+                    <option value="ggton">Gigatons</option>
+                    <option value="trton">Teratons</option>
+                </select>
+            </div>
+            <button type="button" id="convertbtnSI">Convert</button>
+            <p id="resultSI">select a unit</p>
+
+        </form>
+    </div>
     <script src="mass.js"></script>
 </body>
 </html>

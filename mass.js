@@ -49,3 +49,51 @@ function convertMass(event) {
 
 const convertbtn = document.getElementById('convertbtn');
 convertbtn.addEventListener('click', convertMass);
+
+const inputSI = document.getElementById('inputSI');
+const unitFrom = document.getElementById('unitFrom');
+const unitTo = document.getElementById('unitTo');
+const resultSI = document.getElementById('resultSI');
+const convertbtnSI = document.getElementById('convertbtnSI');
+
+function toGram(value, unit){
+    switch(unit){
+        case '': return "Please select a unit";
+        case 'ug': return value / 1e+6;
+        case 'mg': return value / 1000;
+        case 'g': return value;
+        case 'kg': return value * 1000;
+        case 'ton': return value * 1e+6;
+        case 'mgton': return value * 1e+9;
+        case 'ggton': return value * 1e+12;
+        case 'trton': return value * 1e+15;
+        default: return "Please select a unit";
+    }
+}
+
+function fromGram(grams, unit){
+    switch(unit){
+        case '': return "Please select a unit";
+        case 'ug': return grams * 1e+6;
+        case 'mg': return grams * 1000;
+        case 'g': return grams;
+        case 'kg': return grams / 1000;
+        case 'ton': return grams / 1e+6;
+        case 'mgton': return grams / 1e+9;
+        case 'ggton': return grams / 1e+12;
+        case 'trton': return grams / 1e+15;
+        default: return "Please select a unit";
+    }
+}
+
+convertbtnSI.addEventListener('click', function(event){
+    event.preventDefault();
+    const val = Number(inputSI.value);
+    if (isNaN(val) || inputSI.value === '') {
+        resultSI.textContent = 'Please Enter a number';
+        return;
+    }
+    const grams = toGram(val, unitFrom.value);
+    const out = fromGram(grams, unitTo.value);
+    resultSI.textContent = out.toFixed(2) + ' ' + unitTo.value;
+});

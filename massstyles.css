@@ -88,8 +88,6 @@ label{
     font-weight: bold;
     background-color: hsl(207, 100%, 61%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 30%;
-    height: 50px;
 }
 #result {
     margin-top: 25px;
@@ -124,8 +122,6 @@ label{
     font-weight: bold;
     background-color: hsl(207, 100%, 61%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 30%;
-    height: 50px;
 }
 #resultSI {
     margin-top: 25px;

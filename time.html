@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeConverter</title>
+    <link rel="stylesheet" href="timestyles.css">
+</head>
+<body>
+    <form>  
+        <h1>Time Converter</h1>
+        <input type="number" id="input" placeholder="Enter Time"><br>
+        <div class="dropDownContainer">
+            <label for="unitFrom">From</label>
+            <select id="unitFrom">
+                <option value="">--Select Unit--</option>
+                <option value="ms">Milliseconds</option>
+                <option value="s">Seconds</option>
+                <option value="min">Minutes</option>
+                <option value="h">Hours</option>
+                <option value="d">Days</option>
+                <option value="w">Weeks</option>
+                <option value="mth">Months</option>
+                <option value="yr">Years</option>
+            </select>
+
+            <label for="unitTo">To</label>
+            <select id="unitTo">
+                <option value="">--Select Unit--</option>
+                <option value="ms">Milliseconds</option>
+                <option value="s">Seconds</option>
+                <option value="min">Minutes</option>
+                <option value="h">Hours</option>
+                <option value="d">Days</option>
+                <option value="w">Weeks</option>
+                <option value="mth">Months</option>
+                <option value="yr">Years</option>
+            </select>
+        </div>
+        <button type="submit" id="convertbtn">Convert</button>
+        <p id="result">select a unit</p>
+
+    </form>
+    <script src="time.js"></script>
+</body>
+</html>

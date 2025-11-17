@@ -3,35 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TempConverter</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-    <form>  
-        <h1>Temperature Converter</h1>
-        <input type="number" id="input" placeholder="Enter temperature"><br>
-        <div class="optionsContainer">
-            <div id ="leftOptions">
-                <input type="radio" id="CtoF" name="unit">
-                <label for="CtoF">Celsius to Fahrenheit</label><br>
-                <input type="radio" id="CtoK" name="unit">
-                <label for="CtoK">Celsius to Kelvin</label><br>
-                <input type="radio" id="FtoK" name="unit">
-                <label for="FtoK">Farenheit to Kelvin</label>
-            </div>
-            <div id="rightOptions">
-                <input type="radio" id="FtoC" name="unit">
-                <label for="FtoC">Fahrenheit to Celsius</label><br>
-                <input type="radio" id="KtoC" name="unit">
-                <label for="KtoC">Kelvin to Celsius</label><br>
-                <input type="radio" id="KtoF" name="unit">
-                <label for="KtoF">Kelvin to Farenheit</label>
-            </div>
+    <div class="homepageContainer">
+        <div class="header">
+            <h1>Welcome to the Converter Homepage</h1>
         </div>
-        <button type="submit" id="convertbtn">Convert</button>
-        <p id="result">select a unit</p>
+        <div class="content"></div>
+            <p>Select a converter:</p>
+            <ul>
+                <li><a href="index.html">Temperature Converter</a></li>
+                <li><a href="mass.html">Mass Converter</a></li>
+                <li><a href="length.html">Length Converter</a></li>
+                <li><a href="time.html">Time Converter</a></li>
+            </ul>
+        </div>
+        <div class="documentation">
+            <h2>Documentation</h2>
+            <p>This application allows you to convert between different units of measurement including temperature, mass, length, and time. Select the desired converter from the list above to get started.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Converter App</p>
+        </div>
+    </div>
 
-    </form>
-    <script src="content.js"></script>
+    <script src="homepage.js"></script>
 </body>
 </html>

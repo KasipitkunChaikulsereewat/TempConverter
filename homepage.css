@@ -1,6 +1,139 @@
+/* ...existing code... */
+
 body {
-    background-color: hsl(210, 36%, 96%);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, hsl(210, 36%, 98%), hsl(210, 36%, 96%));
+    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #0f1724;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+}
+
+/* Page container */
+.homepageContainer {
+    max-width: 1000px;
+    margin: 48px auto;
+    padding: 28px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #ebf1f3;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(11, 18, 30, 0.04);
+    box-sizing: border-box;
+}
+.header h1 {
+    font-family: "Alan Sans", sans-serif;
+    font-size: 1.9rem;
+    margin: 0;
+    color: #0b3a62;
+    letter-spacing: -0.2px;
+}
+
+/* Main layout - two column adaptative */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+/* Converter list column */
+.converters {
+    /* wrapper for left column if needed */
+}
+.converters p {
+    margin: 0 0 12px 0;
+    color: #334155;
+    font-family: "Alan Sans", sans-serif;
+    font-weight: 600;
+}
+
+/* List styled as cards */
+.converters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+.converters li {
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    border: 1px solid rgba(12, 20, 40, 0.04);
+    padding: 14px 16px;
+    border-radius: 10px;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    box-shadow: 0 4px 14px rgba(11, 18, 30, 0.04);
+}
+.converters a {
+    color: #075985;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+}
+.converters li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(11, 18, 30, 0.08);
+}
+.converters a:focus {
+    outline: 3px solid rgba(7,89,133,0.12);
+    outline-offset: 3px;
+}
+
+/* Documentation column */
+.documentation {
+    background: #fbfcff;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid rgba(12, 20, 40, 0.03);
+}
+.documentation h2 {
+    margin-top: 0;
+    color: #0b3a62;
+    font-size: 1.1rem;
+}
+.documentation p {
+    margin: 8px 0 0 0;
+    color: #394b59;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 18px;
+    color: #64748b;
+    font-size: 0.95rem;
+    padding-top: 8px;
+    border-top: 1px solid rgba(12, 20, 40, 0.04);
+}
+
+/* Small screens: stack layout */
+@media (max-width: 1080px) {
+    .homepageContainer {
+        margin: 20px;
+        padding: 18px;
+    }
+    .content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Utility */
+.hidden {
+    display: none !important;
 }

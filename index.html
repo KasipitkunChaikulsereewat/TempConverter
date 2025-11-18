@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-    <div class="homepageContainer">
+    <!--<div class="homepageContainer">
         <div class="header">
             <h1>Welcome to the Converter Homepage</h1>
         </div>
@@ -27,6 +30,33 @@
         <div class="footer">
             <p>&copy; 2024 Converter App</p>
         </div>
+    </div>-->
+
+    <div class="homepageContainer">
+        <header class="header">
+            <h1>Welcome to the Units Converter Homepage</h1>
+        </header>
+
+        <main class="content">
+            <section class="converters" aria-labelledby="converters-heading">
+                <p id="converters-heading">Select a converter:</p>
+                <ul>
+                    <li><a href="temp.html">Temperature Converter</a></li>
+                    <li><a href="mass.html">Mass Converter</a></li>
+                    <li><a href="length.html">Length Converter</a></li>
+                    <li><a href="time.html">Time Converter</a></li>
+                </ul>
+            </section>
+
+            <aside class="documentation" aria-labelledby="doc-heading">
+                <h2 id="doc-heading">Documentation</h2>
+                <p>This application allows you to convert between different units of measurement including temperature, mass, length, and time. Select the desired converter from the list to get started.</p>
+            </aside>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Converter App</p>
+        </footer>
     </div>
 
     <script src="homepage.js"></script>

@@ -4,40 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EnergyConverter</title>
-    <link rel="stylesheet" href="lengthstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="energystyles.css">
 </head>
 <body>
     <div class="formContainer">
         <form>
             <h1>Energy Unit Converter</h1>
-            <input type="number" id="inputSI" placeholder="Enter Energy"><br>
+            <input type="number" id="input" placeholder="Enter Energy"><br>
             <div class="dropDownContainer">
                 <label for="unitFrom">From</label>
                 <select id="unitFrom">
                     <option value="">--Select Unit--</option>
-                    <option value="j">Joule (J)</option>
-                    <option value="kj">Kilojoule (kJ)</option>
+                    <option value="J">Joule (J)</option>
+                    <option value="kJ">Kilojoule (kJ)</option>
                     <option value="cal">Calorie (cal)</option>
                     <option value="kcal">Kilocalorie (kcal)</option>
-                    <option value="wh">Watt-hour (Wh)</option>
-                    <option value="kwh">Kilowatt-hour (kWh)</option>
-                    <option value="ev">Electronvolt (eV)</option>
+                    <option value="Wh">Watt-hour (Wh)</option>
+                    <option value="kWh">Kilowatt-hour (kWh)</option>
+                    <option value="eV">Electronvolt (eV)</option>
                 </select>
 
                 <label for="unitTo">To</label>
                 <select id="unitTo">
                     <option value="">--Select Unit--</option>
-                    <option value="j">Joule (J)</option>
-                    <option value="kj">Kilojoule (kJ)</option>
+                    <option value="J">Joule (J)</option>
+                    <option value="kJ">Kilojoule (kJ)</option>
                     <option value="cal">Calorie (cal)</option>
                     <option value="kcal">Kilocalorie (kcal)</option>
-                    <option value="wh">Watt-hour (Wh)</option>
-                    <option value="kwh">Kilowatt-hour (kWh)</option>
-                    <option value="ev">Electronvolt (eV)</option>
+                    <option value="Wh">Watt-hour (Wh)</option>
+                    <option value="kWh">Kilowatt-hour (kWh)</option>
+                    <option value="eV">Electronvolt (eV)</option>
                 </select>
             </div>
-            <button type="button" id="convertbtnSI">Convert</button>
-            <p id="resultSI">select a unit</p>
+            <button type="button" id="convertbtn">Convert</button>
+            <p id="result">select a unit</p>
 
         </form>
     </div>

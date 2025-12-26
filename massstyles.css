@@ -21,7 +21,7 @@ body {
     margin: auto;
     margin-top: 50px;
     max-width: 1000px;
-    background-color: hsl(0, 100%, 99%);
+    background-color: hsl(0, 0%, 94%);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@ form{
     background-color: hsl(0, 100%, 99%);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 h1{
     color: hsl(207, 100%, 51%);
@@ -129,4 +129,19 @@ label{
     font-weight: bold;
     color: hsl(207, 100%, 51%);
     text-align: center;    
+}
+
+select {
+    max-width: 130px;
+    padding: 10px;
+    margin-top: 15px;  
+    margin-right: 8px;
+    background-color: #2980B9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family: "Alan Sans", sans-serif;
+    cursor: pointer;
+    z-index: -1;
 }

@@ -10,7 +10,7 @@ function toSeconds(value, unit){
         case 'ms': return value / 1000;
         case 's': return value;
         case 'min': return value * 60;
-        case 'h': return value * 3600;
+        case 'hr': return value * 3600;
         case 'd': return value * 86400;
         case 'w': return value * 604800;
         case 'mth': return value * 2.592e+6;
@@ -25,7 +25,7 @@ function fromSeconds(seconds, unit){
         case 'ms': return seconds * 1000;
         case 's': return seconds;
         case 'min': return seconds / 60;
-        case 'h': return seconds / 3600;
+        case 'hr': return seconds / 3600;
         case 'd': return seconds / 86400;
         case 'w': return seconds / 604800;
         case 'mth': return seconds / 2.592e+6;

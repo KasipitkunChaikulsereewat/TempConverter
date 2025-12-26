@@ -50,9 +50,7 @@ body {
 }
 
 /* Converter list column */
-.converters {
-    /* wrapper for left column if needed */
-}
+
 .converters p {
     margin: 0 0 12px 0;
     color: #334155;

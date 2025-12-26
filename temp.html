@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TempConverter</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="energystyles.css">
 </head>
 <body>
     <form>  
         <h1>Temperature Converter</h1>
         <input type="number" id="input" placeholder="Enter temperature"><br>
-        <div class="optionsContainer">
+        <!--<div class="optionsContainer">
             <div id ="leftOptions">
                 <input type="radio" id="CtoF" name="unit">
                 <label for="CtoF">Celsius to Fahrenheit</label><br>
@@ -27,6 +27,25 @@
                 <input type="radio" id="KtoF" name="unit">
                 <label for="KtoF">Kelvin to Farenheit</label>
             </div>
+        </div>-->
+        <div class="dropDownContainer">
+            <label for="unitFrom">From</label>
+            <select id="unitFrom">
+                <option value="">--Select Unit--</option>
+                <option value="°C">Celsius (°C)</option>
+                <option value="°F">Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+                <option value="°R">Rankine (°R)</option>
+            </select>
+
+            <label for="unitTo">To</label>
+            <select id="unitTo">
+                <option value="">--Select Unit--</option>
+                <option value="°C">Celsius (°C)</option>
+                <option value="°F">Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+                <option value="°R">Rankine (°R)</option>
+            </select>
         </div>
         <button type="submit" id="convertbtn">Convert</button>
         <p id="result">select a unit</p>

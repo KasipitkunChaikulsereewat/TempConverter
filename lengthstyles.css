@@ -16,7 +16,7 @@ form{
     text-align: center;
     margin: auto;
     margin-top: 50px;
-    max-width: 400px;
+    max-width: 500px;
     background-color: hsl(0, 100%, 99%);
     padding: 20px;
     border-radius: 10px;
@@ -126,3 +126,18 @@ label{
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+select {
+    max-width: 160px;
+    padding: 10px;
+    margin-top: 15px;  
+    margin-right: 8px;
+    background-color: #2980B9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family: "Alan Sans", sans-serif;
+    cursor: pointer;
+    z-index: -1;
+}

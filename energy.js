@@ -1,20 +1,20 @@
 
-const inputSI = document.getElementById('inputSI');
+const inputSI = document.getElementById('input');
 const unitFrom = document.getElementById('unitFrom');
 const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('resultSI');
-const convertbtnSI = document.getElementById('convertbtnSI');
+const resultSI = document.getElementById('result');
+const convertbtnSI = document.getElementById('convertbtn');
 
 function toJoule(value, unit){
     switch(unit){
         case '': return "Please select a unit";
-        case 'j': return value;
-        case 'kj': return value * 1000;
+        case 'J': return value;
+        case 'kJ': return value * 1000;
         case 'cal': return value * 4.184;
         case 'kcal': return value * 4184;
-        case 'wh': return value * 3600;
-        case 'kwh': return value * 3.6e+6;
-        case 'ev': return value * 1.60218e-19;
+        case 'Wh': return value * 3600;
+        case 'kWh': return value * 3.6e+6;
+        case 'eV': return value * 1.60218e-19;
         default: return "Please select a unit";
     }
 }
@@ -22,13 +22,13 @@ function toJoule(value, unit){
 function fromJoule(joules, unit){
     switch(unit){
         case '': return "Please select a unit";
-        case 'j': return joules;
-        case 'kj': return joules / 1000;
+        case 'J': return joules;
+        case 'kJ': return joules / 1000;
         case 'cal': return joules / 4.184;
         case 'kcal': return joules / 4184;
-        case 'wh': return joules / 3600;
-        case 'kwh': return joules / 3.6e+6;
-        case 'ev': return joules / 1.60218e-19;
+        case 'Wh': return joules / 3600;
+        case 'kWh': return joules / 3.6e+6;
+        case 'eV': return joules / 1.60218e-19;
         default: return "Please select a unit";
     }
 }
@@ -42,5 +42,5 @@ convertbtnSI.addEventListener('click', function(event){
     }
     const joules = toJoule(val, unitFrom.value);
     const out = fromJoule(joules, unitTo.value);
-    resultSI.textContent = out.toFixed(3) + ' ' + unitTo.value;
+    resultSI.textContent = out + ' ' + unitTo.value;
 });

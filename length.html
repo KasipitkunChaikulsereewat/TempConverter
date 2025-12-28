@@ -4,38 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LengthConverter</title>
-    <link rel="stylesheet" href="lengthstyles.css">
+    <link rel="stylesheet" href="energystyles.css">
 </head>
 <body>
+    <div class="nav">
+        <button class="dropbtn">☰</button>
+        <div class="dropdown-content" id="mydropdown">
+            <a href="index.html">Home</a>
+            <a href="temp.html">Temperature</a>
+            <a href="mass.html">Mass</a>
+            <a href="length.html">Length</a>
+            <a href="time.html">Time</a>
+            <a href="energy.html">Energy</a>
+            <a href="speed.html">Speed</a>
+            <a href="area.html">Area</a>
+            <a href="volume.html">Volume</a>
+        </div>
+    </div>
+    
     <div class="formContainer">
-        <!--<form>  
-            <h1>Mass Converter</h1>
-            <input type="number" id="input" placeholder="Enter mass"><br>
-            <div class="optionsContainer">
-                <div id ="leftOptions">
-                    <input type="radio" id="KgtoLb" name="unit">
-                    <label for="KgtoLb">Kilograms to Pounds</label><br>
-                    <input type="radio" id="KgtoOz" name="unit">
-                    <label for="KgtoOz">Kilograms to Ounces</label><br>
-                    <input type="radio" id="LbtoOz" name="unit">
-                    <label for="LbtoOz">Pounds to Ounces</label>
-                </div>
-                <div id="rightOptions">
-                    <input type="radio" id="LbtoKg" name="unit">
-                    <label for="LbtoKg">Pounds to Kilograms</label><br>
-                    <input type="radio" id="Oztokg" name="unit">
-                    <label for="Oztokg">Ounces to Kilograms</label><br>
-                    <input type="radio" id="Oztolb" name="unit">
-                    <label for="Oztolb">Ounces to Pounds</label>
-                </div>
-            </div>
-            <button type="submit" id="convertbtn">Convert</button>
-            <p id="result">select a unit</p>
-
-        </form>-->
         <form>
             <h1>Length Unit Converter</h1>
-            <input type="number" id="inputSI" placeholder="Enter Length"><br>
+            <input type="number" id="input" placeholder="Enter Length"><br>
             <div class="dropDownContainer">
                 <label for="unitFrom">From</label>
                 <select id="unitFrom">
@@ -75,8 +65,8 @@
                     <option value="pc">Parsecs</option>
                 </select>
             </div>
-            <button type="button" id="convertbtnSI">Convert</button>
-            <p id="resultSI">select a unit</p>
+            <button type="button" id="convertbtn">Convert</button>
+            <p id="result">select a unit</p>
 
         </form>
     </div>

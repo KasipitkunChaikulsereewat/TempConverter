@@ -1,65 +1,14 @@
-/*const kgTolb = document.getElementById('KgtoLb');
-const lbTokg = document.getElementById('LbtoKg');
-const lbTooz = document.getElementById('LbtoOz');
-const ozTolb = document.getElementById('Oztolb');
-const kgTooz = document.getElementById('KgtoOz');
-const ozTokg = document.getElementById('Oztokg');
 
-const textbox = document.getElementById('input');
-const result = document.getElementById('result');
-
-function convertMass(event) {
-    event.preventDefault(); // Prevent form submission
-    if (textbox.value === '' || isNaN(textbox.value)) {
-        result.textContent = 'Please enter a Mass.';
-        return;
-    }
-    else if (kgTolb.checked) {
-        let mass = Number(textbox.value);
-        mass = mass * 2.20462;
-        result.textContent = mass.toFixed(2) + ' lb';
-    }
-    else if (lbTokg.checked) {
-        let mass = Number(textbox.value);
-        mass = mass / 2.20462;
-        result.textContent = mass.toFixed(2) + ' kg';
-    }
-    else if (lbTooz.checked) {
-        let mass = Number(textbox.value);
-        mass = mass * 16;
-        result.textContent = mass.toFixed(2) + ' oz';
-    }
-    else if (ozTolb.checked) {
-        let mass = Number(textbox.value);
-        mass = mass / 16;
-        result.textContent = mass.toFixed(2) + ' lb';
-    }
-    else if (kgTooz.checked) {
-        let mass = Number(textbox.value);
-        mass = mass * 35.274;
-        result.textContent = mass.toFixed(2) + ' oz';
-    }
-    else if (ozTokg.checked) {
-        let mass = Number(textbox.value);
-        mass = mass / 35.274;
-        result.textContent = mass.toFixed(2) + ' kg';
-    }
-    
-}
-
-const convertbtn = document.getElementById('convertbtn');
-convertbtn.addEventListener('click', convertMass);*/
-
-const inputSI = document.getElementById('inputSI');
+const inputSI = document.getElementById('input');
 const unitFrom = document.getElementById('unitFrom');
 const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('resultSI');
-const convertbtnSI = document.getElementById('convertbtnSI');
+const resultSI = document.getElementById('result');
+const convertbtnSI = document.getElementById('convertbtn');
 
 function toMeter(value, unit){
     switch(unit){
         case '': return "Please select a unit";
-        case "nm": return val/1e+9;
+        case "nm": return value/1e+9;
         case 'um': return value / 1e+6;
         case 'mm': return value / 1000;
         case 'cm': return value / 100;
@@ -109,3 +58,23 @@ convertbtnSI.addEventListener('click', function(event){
     const out = fromMeter(meters, unitTo.value);
     resultSI.textContent = out.toFixed(2) + ' ' + unitTo.value;
 });
+
+// Dropdown functionality
+
+function toggleDropdown() {
+    document.getElementById("mydropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);

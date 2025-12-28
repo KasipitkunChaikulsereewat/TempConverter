@@ -14,14 +14,22 @@ body {
 }
 form{
     text-align: center;
-    margin-left: 540px;
-    margin-top: 50px;
+    margin: 50px auto;
     max-width: 500px;
     background-color: hsl(0, 100%, 99%);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* center the form container horizontally */
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+}
+
 h1{
     font-family: 'Arial Black', Gadget, sans-serif;
     color: hsl(207, 100%, 51%);

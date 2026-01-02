@@ -78,4 +78,7 @@ function filterFunction() {
   }
 }
 
+// Expose to global scope for HTML event handlers
+window.filterFunction = filterFunction;
+
 document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);

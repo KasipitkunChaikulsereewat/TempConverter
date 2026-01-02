@@ -47,14 +47,21 @@ function convertMass(event) {
     
 }
 
-const convertbtn = document.getElementById('convertbtn');
-convertbtn.addEventListener('click', convertMass);
+const convertbtn2 = document.getElementById('convertbtn2');
+convertbtn2.addEventListener('click', convertMass);
+
+const clearbtn2 = document.getElementById('clearbtn2');
+clearbtn2.addEventListener('click', function() {
+    textbox.value = '';
+    result.textContent = 'select a unit';
+    document.querySelectorAll('input[name="unit"]').forEach((el) => el.checked = false);
+});
 
 const inputSI = document.getElementById('inputSI');
 const unitFrom = document.getElementById('unitFrom');
 const unitTo = document.getElementById('unitTo');
 const resultSI = document.getElementById('resultSI');
-const convertbtnSI = document.getElementById('convertbtnSI');
+const convertbtnSI = document.getElementById('convertbtn');
 
 function toGram(value, unit){
     switch(unit){
@@ -95,7 +102,17 @@ convertbtnSI.addEventListener('click', function(event){
     }
     const grams = toGram(val, unitFrom.value);
     const out = fromGram(grams, unitTo.value);
-    resultSI.textContent = out.toFixed(2) + ' ' + unitTo.value;
+    resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+});
+
+const clearbtn = document.getElementById('clearbtn');
+
+clearbtn.addEventListener('click', function(event){
+    event.preventDefault();
+    inputSI.value = '';
+    unitFrom.value = '';
+    unitTo.value = '';
+    resultSI.textContent = 'select a unit';
 });
 
 // Dropdown functionality
@@ -105,7 +122,7 @@ function toggleDropdown() {
 }
 
 window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('.dropbtn') && !event.target.matches('#searchInput')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
@@ -114,6 +131,21 @@ window.onclick = function(event) {
             }
         }
     }
+}
+
+function filterFunction() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toLowerCase();
+    const div = document.getElementById("mydropdown");
+    const a = div.getElementsByTagName("a");
+    for (let i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+    }
+  }
 }
 
 document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);

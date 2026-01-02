@@ -13,6 +13,7 @@
     <div class="nav">
         <button class="dropbtn">☰</button>
         <div class="dropdown-content" id="mydropdown">
+            <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterFunction()">
             <a href="index.html">Home</a>
             <a href="temp.html">Temperature</a>
             <a href="mass.html">Mass</a>
@@ -47,7 +48,10 @@
                     <label for="Oztolb">Ounces to Pounds</label>
                 </div>
             </div>
-            <button type="submit" id="convertbtn">Convert</button>
+            <div class="buttonContainer2">
+                <button type="submit" id="convertbtn2">Convert</button>
+                <button type="button" id="clearbtn2">Clear</button>
+            </div>
             <p id="result">select a unit</p>
 
         </form>
@@ -81,7 +85,10 @@
                     <option value="trton">Teratons</option>
                 </select>
             </div>
-            <button type="button" id="convertbtnSI">Convert</button>
+            <div class="buttonContainer">
+                <button type="submit" id="convertbtn">Convert</button>
+                <button type="button" id="clearbtn">Clear</button>
+            </div>
             <p id="resultSI">select a unit</p>
 
         </form>

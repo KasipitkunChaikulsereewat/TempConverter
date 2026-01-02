@@ -93,6 +93,7 @@ const unitFrom = document.getElementById("unitFrom");
 const unitTo = document.getElementById("unitTo");
 const result = document.getElementById("result");
 const convertbtn = document.getElementById("convertbtn");
+const clearbtn = document.getElementById("clearbtn");
 
 function toCelsius(value, unit){
     switch(unit){
@@ -135,6 +136,14 @@ convertbtn.addEventListener('click', function(event){
     }
 });
 
+clearbtn.addEventListener('click', function(event){
+    event.preventDefault();
+    textbox.value = '';
+    unitFrom.value = '';
+    unitTo.value = '';
+    result.textContent = 'select a unit';
+});
+
 // Dropdown functionality
 
 function toggleDropdown() {
@@ -142,7 +151,7 @@ function toggleDropdown() {
 }
 
 window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('.dropbtn') && !event.target.matches('#searchInput')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
@@ -151,6 +160,21 @@ window.onclick = function(event) {
             }
         }
     }
+}
+
+function filterFunction() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toLowerCase();
+    const div = document.getElementById("mydropdown");
+    const a = div.getElementsByTagName("a");
+    for (let i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+    }
+  }
 }
 
 document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);

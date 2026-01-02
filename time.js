@@ -1,9 +1,4 @@
-const input = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const result = document.getElementById('result');
-const convertbtn = document.getElementById('convertbtn');
-
+// time.js
 function toSeconds(value, unit){
     switch(unit){
         case '': return "Please select a unit";
@@ -34,34 +29,4 @@ function fromSeconds(seconds, unit){
     }
 }
 
-convertbtn.addEventListener('click', function(event){
-    event.preventDefault();
-    const val = Number(input.value);
-    if (isNaN(val) || input.value === '') {
-        result.textContent = 'Please Enter a number';
-        return;
-    }
-    const seconds = toSeconds(val, unitFrom.value);
-    const out = fromSeconds(seconds, unitTo.value);
-    result.textContent = out.toFixed(4) + ' ' + unitTo.value;
-});
-
-// Dropdown functionality
-
-function toggleDropdown() {
-    document.getElementById("mydropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);
+export {toSeconds, fromSeconds};

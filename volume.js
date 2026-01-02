@@ -5,30 +5,46 @@ const unitTo = document.getElementById('unitTo');
 const resultSI = document.getElementById('result');
 const convertbtnSI = document.getElementById('convertbtn');
 
-function toJoule(value, unit){
+const toCuMeter = (value, unit) => {
     switch(unit){
         case '': return "Please select a unit";
-        case 'J': return value;
-        case 'kJ': return value * 1000;
-        case 'cal': return value * 4.184;
-        case 'kcal': return value * 4184;
-        case 'Wh': return value * 3600;
-        case 'kWh': return value * 3.6e+6;
-        case 'eV': return value * 1.60218e-19;
+        case 'nm^3' : return value / 1e+27;
+        case 'um^3' : return value / 1e+18;
+        case 'mm^3' : return value / 1e+9;
+        case 'cm^3' : return value / 1e+6;
+        case 'in^3' : return value * 0.0000163871;
+        case 'ft^3' : return value * 0.0283168;
+        case 'yd^3' : return value * 0.764555;
+        case 'dm^3' : return value / 1000;
+        case 'm^3' : return value;
+        case 'km^3' : return value * 1e+9;
+        case 'mi^3' : return value * 4.168e+9;
+        case 'ug' : return value * 0.00378541;
+        case 'ml' : return value / 1e+6;
+        case 'l' : return value / 1000;
+        case 'kgl' : return value;
         default: return "Please select a unit";
     }
 }
 
-function fromJoule(joules, unit){
+const fromCuMeter = (meters, unit) => {
     switch(unit){
         case '': return "Please select a unit";
-        case 'J': return joules;
-        case 'kJ': return joules / 1000;
-        case 'cal': return joules / 4.184;
-        case 'kcal': return joules / 4184;
-        case 'Wh': return joules / 3600;
-        case 'kWh': return joules / 3.6e+6;
-        case 'eV': return joules / 1.60218e-19;
+        case "nm^3": return meters * 1e+27;
+        case 'um^3': return meters * 1e+18;
+        case 'mm^3': return meters * 1e+9;
+        case 'cm^3': return meters * 1e+6;
+        case 'in^3': return meters / 0.0000163871;
+        case 'ft^3': return meters / 0.0283168;
+        case 'yd^3': return meters / 0.764555;
+        case 'dm^3': return meters * 1000;
+        case 'm^3': return meters;
+        case 'km^3': return meters / 1e+9;
+        case 'mi^3': return meters / 4.168e+9;
+        case 'ug': return meters / 0.00378541;
+        case 'ml': return meters * 1e+6;
+        case 'l': return meters * 1000;
+        case 'kgl': return meters;
         default: return "Please select a unit";
     }
 }
@@ -40,8 +56,8 @@ convertbtnSI.addEventListener('click', function(event){
         resultSI.textContent = 'Please Enter a number';
         return;
     }
-    const joules = toJoule(val, unitFrom.value);
-    const out = fromJoule(joules, unitTo.value);
+    const meters = toSqMeter(val, unitFrom.value);
+    const out = fromSqMeter(meters, unitTo.value);
     resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
 });
 

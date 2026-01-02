@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AreaConverter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="energystyles.css">
+</head>
+<body>
+    <div class="nav">
+        <button class="dropbtn">☰</button>
+        <div class="dropdown-content" id="mydropdown">
+            <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterFunction()">
+            <a href="index.html">Home</a>
+            <a href="temp.html">Temperature</a>
+            <a href="mass.html">Mass</a>
+            <a href="length.html">Length</a>
+            <a href="time.html">Time</a>
+            <a href="energy.html">Energy</a>
+            <a href="speed.html">Speed</a>
+            <a href="area.html">Area</a>
+            <a href="volume.html">Volume</a>
+        </div>
+    </div>
+    
+    <div class="formContainer">
+        <form>
+            <h1>Area Unit Converter</h1>
+            <input type="number" id="input" placeholder="Enter Area"><br>
+            <div class="dropDownContainer">
+                <label for="unitFrom">From</label>
+                <select id="unitFrom">
+                    <option value="">--Select Unit--</option>
+                    <option value="nm^2">Square Nanometers</option>
+                    <option value="um^2">Square Micrometers</option>
+                    <option value="mm^2">Square Millimeters</option>
+                    <option value="cm^2">Square Centimeters</option>
+                    <option value="in^2">Square Inches</option>
+                    <option value="ft^2">Square Feet</option>
+                    <option value="yd^2">Square Yards</option>
+                    <option value="m^2">Square Meters</option>
+                    <option value="km^2">Square Kilometers</option>
+                    <option value="mi^2">Square Miles</option>
+                    <option value="ac">Acres</option>
+                    <option value="ha">Hectares</option>
+                    <option value="tr. wa">Tarang Wa</option>
+                    <option value="rai">Rai</option>
+                </select>
+
+                <label for="unitTo">To</label>
+                <select id="unitTo">
+                    <option value="">--Select Unit--</option>
+                    <option value="nm^2">Square Nanometers</option>
+                    <option value="um^2">Square Micrometers</option>
+                    <option value="mm^2">Square Millimeters</option>
+                    <option value="cm^2">Square Centimeters</option>
+                    <option value="in^2">Square Inches</option>
+                    <option value="ft^2">Square Feet</option>
+                    <option value="yd^2">Square Yards</option>
+                    <option value="m^2">Square Meters</option>
+                    <option value="km^2">Square Kilometers</option>
+                    <option value="mi^2">Square Miles</option>
+                    <option value="ac">Acres</option>
+                    <option value="ha">Hectares</option>
+                    <option value="tr. wa">Tarang Wa</option>
+                    <option value="rai">Rai</option>
+                </select>
+            </div>
+            <div class="buttonContainer">
+                <button type="submit" id="convertbtn">Convert</button>
+                <button type="button" id="clearbtn">Clear</button>
+            </div>
+            <p id="result">select a unit</p>
+
+        </form>
+    </div>
+    <script src="area.js"></script>
+</body>
+</html>

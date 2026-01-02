@@ -1,13 +1,7 @@
-
-const inputSI = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('result');
-const convertbtnSI = document.getElementById('convertbtn');
-
-function toMeter(value, unit){
+// length.js
+const toMeter = (value, unit) => {
     switch(unit){
-        case '': return "Please select a unit";
+        case '': throw new Error ("Please select a unit");
         case "nm": return value/1e+9;
         case 'um': return value / 1e+6;
         case 'mm': return value / 1000;
@@ -22,13 +16,13 @@ function toMeter(value, unit){
         case "ly": return value * 9.461e+15;
         case "pc": return value * 3.086e+16;
         case "au": return value * 1.496e+11;
-        default: return "Please select a unit";
+        default: throw new Error ("Please select a unit");
     }
 }
 
-function fromMeter(meters, unit){
+const fromMeter = (meters, unit) => {
     switch(unit){
-        case '': return "Please select a unit";
+        case '': throw new Error ("Please select a unit");
         case "nm": return meters * 1e+9;
         case 'um': return meters * 1e+6;
         case 'mm': return meters * 1000;
@@ -43,38 +37,8 @@ function fromMeter(meters, unit){
         case "ly": return meters / 9.461e+15;
         case "pc": return meters / 3.086e+16;
         case "au": return meters / 1.496e+11;
-        default: return "Please select a unit";
+        default: throw new Error ("Please select a unit");
     }
 }
 
-convertbtnSI.addEventListener('click', function(event){
-    event.preventDefault();
-    const val = Number(inputSI.value);
-    if (isNaN(val) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
-        return;
-    }
-    const meters = toMeter(val, unitFrom.value);
-    const out = fromMeter(meters, unitTo.value);
-    resultSI.textContent = out.toFixed(2) + ' ' + unitTo.value;
-});
-
-// Dropdown functionality
-
-function toggleDropdown() {
-    document.getElementById("mydropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);
+export {toMeter, fromMeter};

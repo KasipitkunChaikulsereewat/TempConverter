@@ -13,6 +13,7 @@
     <div class="nav">
         <button class="dropbtn">☰</button>
         <div class="dropdown-content" id="mydropdown">
+            <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterFunction()">
             <a href="index.html">Home</a>
             <a href="temp.html">Temperature</a>
             <a href="mass.html">Mass</a>
@@ -65,7 +66,10 @@
                 <option value="°R">Rankine (°R)</option>
             </select>
         </div>
-        <button type="submit" id="convertbtn">Convert</button>
+        <div class="buttonContainer">
+            <button type="submit" id="convertbtn">Convert</button>
+            <button type="button" id="clearbtn">Clear</button>
+        </div>
         <p id="result">select a unit</p>
 
     </form>

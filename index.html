@@ -41,14 +41,17 @@
             <section class="converters" aria-labelledby="converters-heading">
                 <p id="converters-heading">Select a converter:</p>
                 <ul>
-                    <li><a href="temp.html">Temperature Converter</a></li>
-                    <li><a href="mass.html">Mass Converter</a></li>
-                    <li><a href="length.html">Length Converter</a></li>
-                    <li><a href="time.html">Time Converter</a></li>
-                    <li><a href="energy.html">Energy Converter</a></li>
-                    <li><a href="speed.html">Speed Converter</a></li>
-                    <li><a href="area.html">Area Converter</a></li>
-                    <li><a href="volume.html">Volume Converter</a></li>
+                    <li><input type="text" placeholder="Search for converters..." id="searchInput" onkeyup="filterFunction()"></li>
+                    <div class="dropdown-content" id="mydropdown">
+                        <li><a href="temp.html">Temperature Converter</a></li>
+                        <li><a href="mass.html">Mass Converter</a></li>
+                        <li><a href="length.html">Length Converter</a></li>
+                        <li><a href="time.html">Time Converter</a></li>
+                        <li><a href="energy.html">Energy Converter</a></li>
+                        <li><a href="speed.html">Speed Converter</a></li>
+                        <li><a href="area.html">Area Converter</a></li>
+                        <li><a href="volume.html">Volume Converter</a></li>
+                    </div>
                 </ul>
             </section>
 

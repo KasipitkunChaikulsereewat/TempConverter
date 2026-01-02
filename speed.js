@@ -10,7 +10,11 @@ const timeunitTo = document.getElementById('timeunitTo');
 const resultSI = document.getElementById('result');
 const convertbtnSI = document.getElementById('convertbtn');
 
+function toScientific(num) {
+    return num.toExponential(2);
+}
 
+const sciNotationCheckbox = document.getElementById('sciNotation');
 
 convertbtnSI.addEventListener('click', function(event){
     event.preventDefault();
@@ -29,7 +33,11 @@ convertbtnSI.addEventListener('click', function(event){
     const outMeters = fromMeter(meters, distanceunitTo.value);
     const outSeconds = fromSeconds(seconds, timeunitTo.value);
     const out = outMeters / outSeconds;
-    resultSI.textContent = out.toFixed(4) + ' ' + distanceunitTo.value + '/' + timeunitTo.value;
+    if (sciNotationCheckbox.checked) {
+        resultSI.textContent = toScientific(out) + ' ' + distanceunitTo.value + '/' + timeunitTo.value;
+    } else {
+        resultSI.textContent = out.toFixed(4) + ' ' + distanceunitTo.value + '/' + timeunitTo.value;
+    }
 });
 
 const clearbtn = document.getElementById('clearbtn');
@@ -47,7 +55,7 @@ clearbtn.addEventListener('click', function(event){
 
 // Dropdown functionality
 
-function toggleDropdown() {
+/*function toggleDropdown() {
     document.getElementById("mydropdown").classList.toggle("show");
 }
 
@@ -81,4 +89,4 @@ function filterFunction() {
 // Expose to global scope for HTML event handlers
 window.filterFunction = filterFunction;
 
-document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);
+document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);*/

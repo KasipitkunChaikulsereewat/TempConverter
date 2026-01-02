@@ -47,6 +47,12 @@ const fromSqMeter = (meters, unit) => {
     }
 }
 
+function toScientific(num) {
+    return num.toExponential(2);
+}
+
+const sciNotationCheckbox = document.getElementById('sciNotation');
+
 convertbtnSI.addEventListener('click', function(event){
     event.preventDefault();
     const val = Number(inputSI.value);
@@ -56,7 +62,11 @@ convertbtnSI.addEventListener('click', function(event){
     }
     const meters = toSqMeter(val, unitFrom.value);
     const out = fromSqMeter(meters, unitTo.value);
-    resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+    if (sciNotationCheckbox.checked) {
+        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    } else {
+        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+    }
 });
 
 const clearbtn = document.getElementById('clearbtn');
@@ -68,38 +78,3 @@ clearbtn.addEventListener('click', function(event){
     unitTo.value = '';
     resultSI.textContent = 'select a unit';
 });
-
-// Dropdown functionality
-
-function toggleDropdown() {
-    document.getElementById("mydropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.matches('#searchInput')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-function filterFunction() {
-    const input = document.getElementById("searchInput");
-    const filter = input.value.toLowerCase();
-    const div = document.getElementById("mydropdown");
-    const a = div.getElementsByTagName("a");
-    for (let i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toLowerCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-    }
-  }
-}
-
-document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);

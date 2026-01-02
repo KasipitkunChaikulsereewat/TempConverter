@@ -56,8 +56,8 @@ convertbtnSI.addEventListener('click', function(event){
         resultSI.textContent = 'Please Enter a number';
         return;
     }
-    const meters = toSqMeter(val, unitFrom.value);
-    const out = fromSqMeter(meters, unitTo.value);
+    const meters = toCuMeter(val, unitFrom.value);
+    const out = fromCuMeter(meters, unitTo.value);
     resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
 });
 

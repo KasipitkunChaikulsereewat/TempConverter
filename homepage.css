@@ -92,6 +92,13 @@ body {
     transition: transform 160ms ease, box-shadow 160ms ease;
     box-shadow: 0 4px 14px rgba(11, 18, 30, 0.04);
 }
+.converters input {
+    width: 100%;
+    border: 1px solid hsl(0, 0%, 100%);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: "Alan Sans", sans-serif;
+}
 .converters a {
     color: #075985;
     text-decoration: none;
@@ -103,6 +110,10 @@ body {
     box-shadow: 0 10px 30px rgba(11, 18, 30, 0.08);
 }
 .converters a:focus {
+    outline: 3px solid rgba(7,89,133,0.12);
+    outline-offset: 3px;
+}
+.converters input:focus {
     outline: 3px solid rgba(7,89,133,0.12);
     outline-offset: 3px;
 }

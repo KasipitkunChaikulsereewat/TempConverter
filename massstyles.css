@@ -19,7 +19,7 @@ body {
     justify-content: flex-start;
     text-align: center;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
     max-width: 1000px;
     background-color: hsl(0, 0%, 94%);
     padding: 20px;
@@ -256,3 +256,43 @@ select:hover {
 .show {
     display: block;
 }
+
+/* checkbox container */
+
+#sciNotation {
+    font-family: "Alan Sans", sans-serif;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.checkbox-container-1 {
+    margin-top: 5px;
+    text-align: center;
+}
+
+#label {
+    color :hsl(0, 0%, 33%);
+    font-family: "Alan Sans", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}   
+
+#sciNotation2 {
+    font-family: "Alan Sans", sans-serif;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.checkbox-container-2 {
+    margin-top: 5px;
+    text-align: center;
+}
+
+#label2 {
+    color :hsl(0, 0%, 33%);
+    font-family: "Alan Sans", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}   

@@ -7,6 +7,7 @@ const ozTokg = document.getElementById('Oztokg');
 
 const textbox = document.getElementById('input');
 const result = document.getElementById('result');
+const sciNotationCheckbox = document.getElementById('sciNotation2');
 
 function convertMass(event) {
     event.preventDefault(); // Prevent form submission
@@ -17,32 +18,56 @@ function convertMass(event) {
     else if (kgTolb.checked) {
         let mass = Number(textbox.value);
         mass = mass * 2.20462;
-        result.textContent = mass.toFixed(2) + ' lb';
+        if (sciNotationCheckbox.checked) {
+            result.textContent = toScientific(mass) + ' lb';
+        } else {
+            result.textContent = mass.toFixed(2) + ' lb';
+        }
     }
     else if (lbTokg.checked) {
         let mass = Number(textbox.value);
         mass = mass / 2.20462;
-        result.textContent = mass.toFixed(2) + ' kg';
+        if (sciNotationCheckbox.checked) {
+            result.textContent = toScientific(mass) + ' kg';
+        } else {
+            result.textContent = mass.toFixed(2) + ' kg';
+        }
     }
     else if (lbTooz.checked) {
         let mass = Number(textbox.value);
         mass = mass * 16;
-        result.textContent = mass.toFixed(2) + ' oz';
+        if (sciNotationCheckbox.checked) {
+            result.textContent = toScientific(mass) + ' oz';
+        } else {
+            result.textContent = mass.toFixed(2) + ' oz';
+        }
     }
     else if (ozTolb.checked) {
         let mass = Number(textbox.value);
         mass = mass / 16;
-        result.textContent = mass.toFixed(2) + ' lb';
+        if (sciNotationCheckbox.checked) {
+            result.textContent = toScientific(mass) + ' lb';
+        } else {
+            result.textContent = mass.toFixed(2) + ' lb';
+        }
     }
     else if (kgTooz.checked) {
         let mass = Number(textbox.value);
         mass = mass * 35.274;
-        result.textContent = mass.toFixed(2) + ' oz';
+        if (sciNotationCheckbox.checked) {
+            result.textContent = toScientific(mass) + ' oz';
+        } else {
+            result.textContent = mass.toFixed(2) + ' oz';
+        }
     }
     else if (ozTokg.checked) {
         let mass = Number(textbox.value);
         mass = mass / 35.274;
-        result.textContent = mass.toFixed(2) + ' kg';
+        if (sciNotationCheckbox.checked) {
+            result.textContent = toScientific(mass) + ' kg';
+        } else {
+            result.textContent = mass.toFixed(2) + ' kg';
+        }
     }
     
 }
@@ -93,6 +118,12 @@ function fromGram(grams, unit){
     }
 }
 
+function toScientific(num) {
+    return num.toExponential(2);
+}
+
+const sciNotation = document.getElementById('sciNotation');
+
 convertbtnSI.addEventListener('click', function(event){
     event.preventDefault();
     const val = Number(inputSI.value);
@@ -102,7 +133,11 @@ convertbtnSI.addEventListener('click', function(event){
     }
     const grams = toGram(val, unitFrom.value);
     const out = fromGram(grams, unitTo.value);
-    resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+    if (sciNotation.checked) {
+        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    } else {
+        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+    }
 });
 
 const clearbtn = document.getElementById('clearbtn');
@@ -114,38 +149,3 @@ clearbtn.addEventListener('click', function(event){
     unitTo.value = '';
     resultSI.textContent = 'select a unit';
 });
-
-// Dropdown functionality
-
-function toggleDropdown() {
-    document.getElementById("mydropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.matches('#searchInput')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-function filterFunction() {
-    const input = document.getElementById("searchInput");
-    const filter = input.value.toLowerCase();
-    const div = document.getElementById("mydropdown");
-    const a = div.getElementsByTagName("a");
-    for (let i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
-        if (txtValue.toLowerCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
-        } else {
-            a[i].style.display = "none";
-    }
-  }
-}
-
-document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);

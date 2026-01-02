@@ -35,7 +35,17 @@ h1{
     color: hsl(207, 100%, 51%);
     font-size: 2em;
 }
-input {
+#input {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+#input2, #input1 {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
@@ -225,3 +235,24 @@ select:hover {
 .show {
     display: block;
 }
+
+/* checkbox container */
+
+#sciNotation {
+    font-family: "Alan Sans", sans-serif;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.checkbox-container {
+    margin-top: 5px;
+    text-align: center;
+}
+
+#label {
+    color :hsl(0, 0%, 33%);
+    font-family: "Alan Sans", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}   

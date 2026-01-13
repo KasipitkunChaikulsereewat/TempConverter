@@ -121,10 +121,25 @@ function toScientific(num) {
     return num.toExponential(2);
 }
 
+var clickSound1 = document.getElementById('click-sound');
+
+function playClickSoundKita() {
+    clickSound1.currentTime = 0;
+    clickSound1.play();
+}
+
+var clickSound2 = document.getElementById('click-sound-clear');
+
+function playClickSoundClear() {
+    clickSound2.currentTime = 0;
+    clickSound2.play();
+}
+
 const sciNotation = document.getElementById('sciNotation');
 
 convertbtn.addEventListener('click', function(event){
     event.preventDefault();
+    playClickSoundKita();
     const val = Number(textbox.value);
     if (isNaN(val) || textbox.value === '') {
         result.textContent = 'Please Enter a Temperature';
@@ -148,6 +163,7 @@ convertbtn.addEventListener('click', function(event){
 
 clearbtn.addEventListener('click', function(event){
     event.preventDefault();
+    playClickSoundClear();
     textbox.value = '';
     unitFrom.value = '';
     unitTo.value = '';

@@ -38,10 +38,25 @@ function toScientific(num) {
     return num.toExponential(2);
 }
 
+var clickSound1 = document.getElementById('click-sound');
+
+function playClickSoundKita() {
+    clickSound1.currentTime = 0;
+    clickSound1.play();
+}
+
+var clickSound2 = document.getElementById('click-sound-clear');
+
+function playClickSoundClear() {
+    clickSound2.currentTime = 0;
+    clickSound2.play();
+}
+
 const sciNotation = document.getElementById('sciNotation');
 
 convertbtn.addEventListener('click', function(event){
     event.preventDefault();
+    playClickSoundKita();   
     const val = Number(input.value);
     if (isNaN(val) || input.value === '') {
         result.textContent = 'Please Enter a number';
@@ -60,6 +75,7 @@ const clearbtn = document.getElementById('clearbtn');
 
 clearbtn.addEventListener('click', function(event){
     event.preventDefault();
+    playClickSoundClear();
     input.value = '';
     unitFrom.value = '';
     unitTo.value = '';

@@ -14,10 +14,25 @@ function toScientific(num) {
     return num.toExponential(2);
 }
 
+var clickSound1 = document.getElementById('click-sound');
+
+function playClickSoundKita() {
+    clickSound1.currentTime = 0;
+    clickSound1.play();
+}
+
+var clickSound2 = document.getElementById('click-sound-clear');
+
+function playClickSoundClear() {
+    clickSound2.currentTime = 0;
+    clickSound2.play();
+}
+
 const sciNotationCheckbox = document.getElementById('sciNotation');
 
 convertbtnSI.addEventListener('click', function(event){
     event.preventDefault();
+    playClickSoundKita();
     const val1 = Number(inputSI.value);
     if (isNaN(val1) || inputSI.value === '') {
         resultSI.textContent = 'Please Enter a number';
@@ -44,6 +59,7 @@ const clearbtn = document.getElementById('clearbtn');
 
 clearbtn.addEventListener('click', function(event){
     event.preventDefault();
+    playClickSoundClear();
     inputSI.value = '';
     inputTime.value = '';
     distanceunitFrom.value = '';

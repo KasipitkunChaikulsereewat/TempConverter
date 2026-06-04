@@ -1,14 +1,14 @@
 import { toMeter, fromMeter } from './length.js';
 import { toSeconds, fromSeconds } from './time.js';
 
-const inputSI = document.getElementById('input1');
-const inputTime = document.getElementById('input2');
-const distanceunitFrom = document.getElementById('distanceunitFrom');
-const timeunitFrom = document.getElementById('timeunitFrom');
-const distanceunitTo = document.getElementById('distanceunitTo');
-const timeunitTo = document.getElementById('timeunitTo');
-const resultSI = document.getElementById('result');
-const convertbtnSI = document.getElementById('convertbtn');
+let speedInputSI = document.getElementById('speedFormContainerInput1');
+let speedInputTime = document.getElementById('speedFormContainerInput2');
+let speedDistanceunitFrom = document.getElementById('speedFormContainerDistanceUnitFrom');
+let speedTimeunitFrom = document.getElementById('speedFormContainerTimeUnitFrom');
+let speedDistanceunitTo = document.getElementById('speedFormContainerDistanceUnitTo');
+let speedTimeunitTo = document.getElementById('speedFormContainerTimeUnitTo');
+let speedResultSI = document.getElementById('speedFormContainerResult');
+let speedConvertBtn = document.getElementById('speedFormContainerConvertBtn');
 
 function toScientific(num) {
     return num.toExponential(2);
@@ -28,45 +28,45 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotationCheckbox = document.getElementById('sciNotation');
+let speedSciNotation = document.getElementById('speedFormContainerSciNotation');
 
-convertbtnSI.addEventListener('click', function(event){
+speedConvertBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundKita();
-    const val1 = Number(inputSI.value);
-    if (isNaN(val1) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val1 = Number(speedInputSI.value);
+    if (isNaN(val1) || speedInputSI.value === '') {
+        speedResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const val2 = Number(inputTime.value);
-    if (isNaN(val2) || inputTime.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val2 = Number(speedInputTime.value);
+    if (isNaN(val2) || speedInputTime.value === '') {
+        speedResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const meters = toMeter(val1, distanceunitFrom.value);
-    const seconds = toSeconds(val2, timeunitFrom.value);
-    const outMeters = fromMeter(meters, distanceunitTo.value);
-    const outSeconds = fromSeconds(seconds, timeunitTo.value);
+    const meters = toMeter(val1, speedDistanceunitFrom.value);
+    const seconds = toSeconds(val2, speedTimeunitFrom.value);
+    const outMeters = fromMeter(meters, speedDistanceunitTo.value);
+    const outSeconds = fromSeconds(seconds, speedTimeunitTo.value);
     const out = outMeters / outSeconds;
-    if (sciNotationCheckbox.checked) {
-        resultSI.textContent = toScientific(out) + ' ' + distanceunitTo.value + '/' + timeunitTo.value;
+    if (speedSciNotation.checked) {
+        speedResultSI.textContent = toScientific(out) + ' ' + speedDistanceunitTo.value + '/' + speedTimeunitTo.value;
     } else {
-        resultSI.textContent = out.toFixed(4) + ' ' + distanceunitTo.value + '/' + timeunitTo.value;
+        speedResultSI.textContent = out.toFixed(4) + ' ' + speedDistanceunitTo.value + '/' + speedTimeunitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let speedClearBtn = document.getElementById('speedFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
+speedClearBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundClear();
-    inputSI.value = '';
-    inputTime.value = '';
-    distanceunitFrom.value = '';
-    timeunitFrom.value = '';
-    distanceunitTo.value = '';
-    timeunitTo.value = '';
-    resultSI.textContent = 'select a unit';
+    speedInputSI.value = '';
+    speedInputTime.value = '';
+    speedDistanceunitFrom.value = '';
+    speedTimeunitFrom.value = '';
+    speedDistanceunitTo.value = '';
+    speedTimeunitTo.value = '';
+    speedResultSI.textContent = 'select a unit';
 });
 
 // Dropdown functionality

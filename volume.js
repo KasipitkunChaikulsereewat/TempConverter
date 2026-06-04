@@ -1,11 +1,11 @@
 
-const inputSI = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('result');
-const convertbtnSI = document.getElementById('convertbtn');
+let volumeInputSI = document.getElementById('volumeFormContainerInput');
+let volumeUnitFrom = document.getElementById('volumeFormContainerUnitFrom');
+let volumeUnitTo = document.getElementById('volumeFormContainerUnitTo');
+let volumeResultSI = document.getElementById('volumeFormContainerResult');
+let volumeConvertBtn = document.getElementById('volumeFormContainerConvertBtn');
 
-const toCuMeter = (value, unit) => {
+let volumeToCuMeter = (value, unit) => {
     switch(unit){
         case '': return "Please select a unit";
         case 'nm^3' : return value / 1e+27;
@@ -27,7 +27,7 @@ const toCuMeter = (value, unit) => {
     }
 }
 
-const fromCuMeter = (meters, unit) => {
+let volumeFromCuMeter = (meters, unit) => {
     switch(unit){
         case '': return "Please select a unit";
         case "nm^3": return meters * 1e+27;
@@ -67,32 +67,32 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotation = document.getElementById('sciNotation');
+let volumeSciNotation = document.getElementById('volumeFormContainerSciNotation');
 
-convertbtnSI.addEventListener('click', function(event){
+volumeConvertBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundKita();
-    const val = Number(inputSI.value);
-    if (isNaN(val) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val = Number(volumeInputSI.value);
+    if (isNaN(val) || volumeInputSI.value === '') {
+        volumeResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const meters = toCuMeter(val, unitFrom.value);
-    const out = fromCuMeter(meters, unitTo.value);
-    if (sciNotation.checked) {
-        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    const meters = volumeToCuMeter(val, volumeUnitFrom.value);
+    const out = volumeFromCuMeter(meters, volumeUnitTo.value);
+    if (volumeSciNotation.checked) {
+        volumeResultSI.textContent = toScientific(out) + ' ' + volumeUnitTo.value;
     } else {
-        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+        volumeResultSI.textContent = out.toFixed(4) + ' ' + volumeUnitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let volumeClearBtn = document.getElementById('volumeFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
+volumeClearBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundClear();
-    inputSI.value = '';
-    unitFrom.value = '';
-    unitTo.value = '';
-    resultSI.textContent = 'select a unit';
+    volumeInputSI.value = '';
+    volumeUnitFrom.value = '';
+    volumeUnitTo.value = '';
+    volumeResultSI.textContent = 'select a unit';
 });

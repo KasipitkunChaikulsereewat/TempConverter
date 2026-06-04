@@ -1,8 +1,8 @@
-const input = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const result = document.getElementById('result');
-const convertbtn = document.getElementById('convertbtn');
+let timeInput = document.getElementById('timeFormContainerInput');
+let timeUnitFrom = document.getElementById('timeFormContainerUnitFrom');
+let timeUnitTo = document.getElementById('timeFormContainerUnitTo');
+let timeResult = document.getElementById('timeFormContainerResult');
+let timeConvertBtn = document.getElementById('timeFormContainerConvertBtn');
 
 function toSeconds(value, unit){
     switch(unit){
@@ -52,32 +52,32 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotation = document.getElementById('sciNotation');
+let timeSciNotation = document.getElementById('timeFormContainerSciNotation');
 
-convertbtn.addEventListener('click', function(event){
+timeConvertBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundKita();   
-    const val = Number(input.value);
-    if (isNaN(val) || input.value === '') {
-        result.textContent = 'Please Enter a number';
+    const val = Number(timeInput.value);
+    if (isNaN(val) || timeInput.value === '') {
+        timeResult.textContent = 'Please Enter a number';
         return;
     }
-    const seconds = toSeconds(val, unitFrom.value);
-    const out = fromSeconds(seconds, unitTo.value);
-    if (sciNotation.checked) {
-        result.textContent = toScientific(out) + ' ' + unitTo.value;
+    const seconds = toSeconds(val, timeUnitFrom.value);
+    const out = fromSeconds(seconds, timeUnitTo.value);
+    if (timeSciNotation.checked) {
+        timeResult.textContent = toScientific(out) + ' ' + timeUnitTo.value;
     } else {
-        result.textContent = out.toFixed(4) + ' ' + unitTo.value;
+        timeResult.textContent = out.toFixed(4) + ' ' + timeUnitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let timeClearBtn = document.getElementById('timeFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
+timeClearBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundClear();
-    input.value = '';
-    unitFrom.value = '';
-    unitTo.value = '';
-    result.textContent = 'select a unit';
+    timeInput.value = '';
+    timeUnitFrom.value = '';
+    timeUnitTo.value = '';
+    timeResult.textContent = 'select a unit';
 });

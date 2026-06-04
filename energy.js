@@ -1,9 +1,9 @@
 
-const inputSI = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('result');
-const convertbtnSI = document.getElementById('convertbtn');
+let energyInputSI = document.getElementById('energyFormContainerInput');
+let energyUnitFrom = document.getElementById('energyFormContainerUnitFrom');
+let energyUnitTo = document.getElementById('energyFormContainerUnitTo');
+let energyResultSI = document.getElementById('energyFormContainerResult');
+let energyConvertBtn = document.getElementById('energyFormContainerConvertBtn');
 
 function toJoule(value, unit){
     switch(unit){
@@ -51,32 +51,32 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotation = document.getElementById('sciNotation');
+let energySciNotation = document.getElementById('energyFormContainerSciNotation');
 
-convertbtnSI.addEventListener('click', function(event){
+energyConvertBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundKita();
-    const val = Number(inputSI.value);
-    if (isNaN(val) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val = Number(energyInputSI.value);
+    if (isNaN(val) || energyInputSI.value === '') {
+        energyResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const joules = toJoule(val, unitFrom.value);
-    const out = fromJoule(joules, unitTo.value);
-    if (sciNotation.checked) {
-        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    const joules = toJoule(val, energyUnitFrom.value);
+    const out = fromJoule(joules, energyUnitTo.value);
+    if (energySciNotation.checked) {
+        energyResultSI.textContent = toScientific(out) + ' ' + energyUnitTo.value;
     } else {
-        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+        energyResultSI.textContent = out.toFixed(4) + ' ' + energyUnitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let energyClearBtn = document.getElementById('energyFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
+energyClearBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundClear();
-    inputSI.value = '';
-    unitFrom.value = '';
-    unitTo.value = '';
-    resultSI.textContent = 'select a unit';
+    energyInputSI.value = '';
+    energyUnitFrom.value = '';
+    energyUnitTo.value = '';
+    energyResultSI.textContent = 'select a unit';
 });

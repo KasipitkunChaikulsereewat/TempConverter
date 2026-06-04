@@ -1,11 +1,11 @@
 
-const inputSI = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('result');
-const convertbtnSI = document.getElementById('convertbtn');
+let lengthInputSI = document.getElementById('lengthFormContainerInput');
+let lengthUnitFrom = document.getElementById('lengthFormContainerUnitFrom');
+let lengthUnitTo = document.getElementById('lengthFormContainerUnitTo');
+let lengthResultSI = document.getElementById('lengthFormContainerResult');
+let lengthConvertBtn = document.getElementById('lengthFormContainerConvertBtn');
 
-const toMeter = (value, unit) => {
+let lengthToMeter = (value, unit) => {
     switch(unit){
         case '': return "Please select a unit";
         case "nm": return value/1e+9;
@@ -26,7 +26,7 @@ const toMeter = (value, unit) => {
     }
 }
 
-const fromMeter = (meters, unit) => {
+let lengthFromMeter = (meters, unit) => {
     switch(unit){
         case '': return "Please select a unit";
         case "nm": return meters * 1e+9;
@@ -65,32 +65,32 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotationCheckbox = document.getElementById('sciNotation');
+let lengthSciNotation = document.getElementById('lengthFormContainerSciNotation');
 
-convertbtnSI.addEventListener('click', function(event){
+lengthConvertBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundKita();
-    const val = Number(inputSI.value);
-    if (isNaN(val) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val = Number(lengthInputSI.value);
+    if (isNaN(val) || lengthInputSI.value === '') {
+        lengthResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const meters = toMeter(val, unitFrom.value);
-    const out = fromMeter(meters, unitTo.value);
-    if (sciNotationCheckbox.checked) {
-        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    const meters = lengthToMeter(val, lengthUnitFrom.value);
+    const out = lengthFromMeter(meters, lengthUnitTo.value);
+    if (lengthSciNotation.checked) {
+        lengthResultSI.textContent = toScientific(out) + ' ' + lengthUnitTo.value;
     } else {
-        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+        lengthResultSI.textContent = out.toFixed(4) + ' ' + lengthUnitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let lengthClearBtn = document.getElementById('lengthFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
+lengthClearBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundClear();
-    inputSI.value = '';
-    unitFrom.value = '';
-    unitTo.value = '';
-    resultSI.textContent = 'select a unit';
+    lengthInputSI.value = '';
+    lengthUnitFrom.value = '';
+    lengthUnitTo.value = '';
+    lengthResultSI.textContent = 'select a unit';
 });

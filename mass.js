@@ -1,94 +1,9 @@
-const kgTolb = document.getElementById('KgtoLb');
-const lbTokg = document.getElementById('LbtoKg');
-const lbTooz = document.getElementById('LbtoOz');
-const ozTolb = document.getElementById('Oztolb');
-const kgTooz = document.getElementById('KgtoOz');
-const ozTokg = document.getElementById('Oztokg');
 
-const textbox = document.getElementById('input');
-const result = document.getElementById('result');
-const sciNotationCheckbox = document.getElementById('sciNotation2');
-
-function convertMass(event) {
-    event.preventDefault(); // Prevent form submission
-    playClickSoundKita();
-    if (textbox.value === '' || isNaN(textbox.value)) {
-        result.textContent = 'Please enter a Mass.';
-        return;
-    }
-    else if (kgTolb.checked) {
-        let mass = Number(textbox.value);
-        mass = mass * 2.20462;
-        if (sciNotationCheckbox.checked) {
-            result.textContent = toScientific(mass) + ' lb';
-        } else {
-            result.textContent = mass.toFixed(2) + ' lb';
-        }
-    }
-    else if (lbTokg.checked) {
-        let mass = Number(textbox.value);
-        mass = mass / 2.20462;
-        if (sciNotationCheckbox.checked) {
-            result.textContent = toScientific(mass) + ' kg';
-        } else {
-            result.textContent = mass.toFixed(2) + ' kg';
-        }
-    }
-    else if (lbTooz.checked) {
-        let mass = Number(textbox.value);
-        mass = mass * 16;
-        if (sciNotationCheckbox.checked) {
-            result.textContent = toScientific(mass) + ' oz';
-        } else {
-            result.textContent = mass.toFixed(2) + ' oz';
-        }
-    }
-    else if (ozTolb.checked) {
-        let mass = Number(textbox.value);
-        mass = mass / 16;
-        if (sciNotationCheckbox.checked) {
-            result.textContent = toScientific(mass) + ' lb';
-        } else {
-            result.textContent = mass.toFixed(2) + ' lb';
-        }
-    }
-    else if (kgTooz.checked) {
-        let mass = Number(textbox.value);
-        mass = mass * 35.274;
-        if (sciNotationCheckbox.checked) {
-            result.textContent = toScientific(mass) + ' oz';
-        } else {
-            result.textContent = mass.toFixed(2) + ' oz';
-        }
-    }
-    else if (ozTokg.checked) {
-        let mass = Number(textbox.value);
-        mass = mass / 35.274;
-        if (sciNotationCheckbox.checked) {
-            result.textContent = toScientific(mass) + ' kg';
-        } else {
-            result.textContent = mass.toFixed(2) + ' kg';
-        }
-    }
-    
-}
-
-const convertbtn2 = document.getElementById('convertbtn2');
-convertbtn2.addEventListener('click', convertMass);
-
-const clearbtn2 = document.getElementById('clearbtn2');
-clearbtn2.addEventListener('click', function() {
-    playClickSoundClear();
-    textbox.value = '';
-    result.textContent = 'select a unit';
-    document.querySelectorAll('input[name="unit"]').forEach((el) => el.checked = false);
-});
-
-const inputSI = document.getElementById('inputSI');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('resultSI');
-const convertbtnSI = document.getElementById('convertbtn');
+let massInputSI = document.getElementById('massFormContainerInputSI');
+let massUnitFrom = document.getElementById('massFormContainerUnitFrom');
+let massUnitTo = document.getElementById('massFormContainerUnitTo');
+let massResultSI = document.getElementById('massFormContainerResultSI');
+let massConvertBtn = document.getElementById('massFormContainerConvertBtn');
 
 function toGram(value, unit){
     switch(unit){
@@ -138,32 +53,32 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotation = document.getElementById('sciNotation');
+let massSciNotation = document.getElementById('massFormContainerSciNotation');
 
-convertbtnSI.addEventListener('click', function(event){
-    event.preventDefault();
+massConvertBtn.addEventListener('click', function(event){
+
     playClickSoundKita();
-    const val = Number(inputSI.value);
-    if (isNaN(val) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val = Number(massInputSI.value);
+    if (isNaN(val) || massInputSI.value === '') {
+        massResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const grams = toGram(val, unitFrom.value);
-    const out = fromGram(grams, unitTo.value);
-    if (sciNotation.checked) {
-        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    const grams = toGram(val, massUnitFrom.value);
+    const out = fromGram(grams, massUnitTo.value);
+    if (massSciNotation.checked) {
+        massResultSI.textContent = toScientific(out) + ' ' + massUnitTo.value;
     } else {
-        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+        massResultSI.textContent = out.toFixed(4) + ' ' + massUnitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let massClearBtn = document.getElementById('massFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
-    event.preventDefault();
+massClearBtn.addEventListener('click', function(event){
+
     playClickSoundClear();
-    inputSI.value = '';
-    unitFrom.value = '';
-    unitTo.value = '';
-    resultSI.textContent = 'select a unit';
+    massInputSI.value = '';
+    massUnitFrom.value = '';
+    massUnitTo.value = '';
+    massResultSI.textContent = 'select a unit';
 });

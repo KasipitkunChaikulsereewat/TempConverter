@@ -50,6 +50,7 @@ body {
     font-size: 2rem;
 }
 
+
 @keyframes bubbling {
     0% {transform: translateY(4px);}
     100% {transform: translateY(-4px);}
@@ -74,6 +75,39 @@ body {
 }
 
 /* List styled as cards */
+.converterCollection {
+    display: grid;
+    grid-auto-columns: 1fr;
+    background: linear-gradient(180deg, #f6fdff, #fbfdff);
+    width: 445px;
+    text-align: left;
+    font-family: "Alan Sans", sans-serif;
+    font-style: normal;
+    font-size: 1em;
+    color: #075985;
+    border: 1px solid rgba(12, 20, 40, 0.04);
+    padding: 14px 16px;
+    border-radius: 10px;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    box-shadow: 0 4px 14px rgba(11, 18, 30, 0.04);
+    cursor: pointer;
+
+}
+
+.converterCollection:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(11, 18, 30, 0.08);
+}
+
+.converterCollection:focus {
+    outline: 3px solid rgba(7,89,133,0.12);
+    outline-offset: 3px;
+}
+
+#tempBtn, #massBtn, #lengthBtn, #timeBtn, #volumeBtn, #speedBtn, #energyBtn, #areaBtn {
+    margin-bottom: 12px;
+}
+
 .converters ul {
     list-style: none;
     padding: 0;
@@ -83,7 +117,9 @@ body {
     max-height: 380px;
     text-wrap: wrap;
     overflow-y: scroll;
+    flex: 1;
 }
+
 .converters li {
     background: linear-gradient(180deg, #ffffff, #fbfdff);
     border: 1px solid rgba(12, 20, 40, 0.04);
@@ -160,7 +196,158 @@ body {
     }
 }
 
+/* Converter form styles */
+.inputBar{
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+label{
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+select {
+    max-width: 160px;
+    padding: 10px;
+    margin-top: 15px;  
+    margin-right: 8px;
+    background-color: #2980B9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family: "Alan Sans", sans-serif;
+    cursor: pointer;
+    z-index: -1;
+    transition: 0.3s ease;
+}
+
+select:hover {
+    background-color: #3498DB;
+}
+
+.buttonContainer button {
+    background-color: hsl(207, 100%, 51%);
+    color: white;
+    margin-top: 25px;
+    padding: 10px 20px;
+    border: 1px solid hsl(0, 0%, 82%);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.buttonContainer button:hover{
+    transition: 0.3s;
+    font-weight: bold;
+    background-color: hsl(207, 100%, 61%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.outputContainer p {
+    margin-top: 25px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: hsl(207, 100%, 51%);
+    text-align: center;    
+}
+
+.checkbox-container label {
+    color :hsl(0, 0%, 33%);
+    font-family: "Alan Sans", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 1px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.checkbox-container {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#speedFormContainerInput1, #speedFormContainerInput2 {
+    width: 35%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.areaFormContainer h1, .energyFormContainer h1, .speedFormContainer h1, .volumeFormContainer h1, .timeFormContainer h1, .lengthFormContainer h1, .massFormContainer h1, .tempFormContainer h1 {
+    color: #146ab1;
+    font-family: "Alan Sans", sans-serif;
+}
+
 /* Utility */
+.tempFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}
+
+.massFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}
+
+.lengthFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}
+
+.timeFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}   
+
+.volumeFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}
+
+.speedFormContainer {
+    display: none;
+    text-align: center;
+    height: 400px;
+}   
+
+.energyFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}
+
+.areaFormContainer {
+    display: none;
+    text-align: center;
+    height: 350px;
+}
+
 .hidden {
-    display: none !important;
+    display: none;
+}
+
+.show {
+    display: block;
 }

@@ -1,11 +1,11 @@
 
-const inputSI = document.getElementById('input');
-const unitFrom = document.getElementById('unitFrom');
-const unitTo = document.getElementById('unitTo');
-const resultSI = document.getElementById('result');
-const convertbtnSI = document.getElementById('convertbtn');
+let areaInputSI = document.getElementById('areaFormContainerInput');
+let areaUnitFrom = document.getElementById('areaFormContainerUnitFrom');
+let areaUnitTo = document.getElementById('areaFormContainerUnitTo');
+let areaResultSI = document.getElementById('areaFormContainerResult');
+let areaConvertBtn = document.getElementById('areaFormContainerConvertBtn');
 
-const toSqMeter = (value, unit) => {
+let areaToSqMeter = (value, unit) => {
     switch(unit){
         case '': return "Please select a unit";
         case 'nm^2' : return value / 1e+18;
@@ -26,7 +26,7 @@ const toSqMeter = (value, unit) => {
     }
 }
 
-const fromSqMeter = (meters, unit) => {
+let areaFromSqMeter = (meters, unit) => {
     switch(unit){
         case '': return "Please select a unit";
         case "nm^2": return meters * 1e+18;
@@ -65,32 +65,32 @@ function playClickSoundClear() {
     clickSound2.play();
 }
 
-const sciNotationCheckbox = document.getElementById('sciNotation');
+let areaSciNotation = document.getElementById('areaFormContainerSciNotation');
 
-convertbtnSI.addEventListener('click', function(event){
+areaConvertBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundKita();
-    const val = Number(inputSI.value);
-    if (isNaN(val) || inputSI.value === '') {
-        resultSI.textContent = 'Please Enter a number';
+    const val = Number(areaInputSI.value);
+    if (isNaN(val) || areaInputSI.value === '') {
+        areaResultSI.textContent = 'Please Enter a number';
         return;
     }
-    const meters = toSqMeter(val, unitFrom.value);
-    const out = fromSqMeter(meters, unitTo.value);
-    if (sciNotationCheckbox.checked) {
-        resultSI.textContent = toScientific(out) + ' ' + unitTo.value;
+    const meters = areaToSqMeter(val, areaUnitFrom.value);
+    const out = areaFromSqMeter(meters, areaUnitTo.value);
+    if (areaSciNotation.checked) {
+        areaResultSI.textContent = toScientific(out) + ' ' + areaUnitTo.value;
     } else {
-        resultSI.textContent = out.toFixed(4) + ' ' + unitTo.value;
+        areaResultSI.textContent = out.toFixed(4) + ' ' + areaUnitTo.value;
     }
 });
 
-const clearbtn = document.getElementById('clearbtn');
+let areaClearBtn = document.getElementById('areaFormContainerClearBtn');
 
-clearbtn.addEventListener('click', function(event){
+areaClearBtn.addEventListener('click', function(event){
     event.preventDefault();
     playClickSoundClear();
-    inputSI.value = '';
-    unitFrom.value = '';
-    unitTo.value = '';
-    resultSI.textContent = 'select a unit';
+    areaInputSI.value = '';
+    areaUnitFrom.value = '';
+    areaUnitTo.value = '';
+    areaResultSI.textContent = 'select a unit';
 });

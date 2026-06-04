@@ -10,28 +10,6 @@
     <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-    <!--<div class="homepageContainer">
-        <div class="header">
-            <h1>Welcome to the Converter Homepage</h1>
-        </div>
-        <div class="content"></div>
-            <p>Select a converter:</p>
-            <ul>
-                <li><a href="temp.html">Temperature Converter</a></li>
-                <li><a href="mass.html">Mass Converter</a></li>
-                <li><a href="length.html">Length Converter</a></li>
-                <li><a href="time.html">Time Converter</a></li>
-            </ul>
-        </div>
-        <div class="documentation">
-            <h2>Documentation</h2>
-            <p>This application allows you to convert between different units of measurement including temperature, mass, length, and time. Select the desired converter from the list above to get started.</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2024 Converter App</p>
-        </div>
-    </div>-->
-
     <div class="homepageContainer">
         <header class="header">
             <h1>Welcome to the <span>Units Converter</span> Homepage</h1>
@@ -43,21 +21,430 @@
                 <ul>
                     <li><input type="text" placeholder="Search for converters..." id="searchInput" onkeyup="filterFunction()"></li>
                     <div class="dropdown-content" id="mydropdown">
-                        <li><a href="temp.html">Temperature Converter</a></li>
-                        <li><a href="mass.html">Mass Converter</a></li>
-                        <li><a href="length.html">Length Converter</a></li>
-                        <li><a href="time.html">Time Converter</a></li>
-                        <li><a href="energy.html">Energy Converter</a></li>
-                        <li><a href="speed.html">Speed Converter</a></li>
-                        <li><a href="area.html">Area Converter</a></li>
-                        <li><a href="volume.html">Volume Converter</a></li>
+                        <button class="converterCollection" id="tempBtn">Temperature Converter</button>
+                        <button class="converterCollection" id="massBtn">Mass Converter</button>
+                        <button class="converterCollection" id="lengthBtn">Length Converter</button>
+                        <button class="converterCollection" id="timeBtn">Time Converter</button>
+                        <button class="converterCollection" id="volumeBtn">Volume Converter</button>
+                        <button class="converterCollection" id="speedBtn">Speed Converter</button>
+                        <button class="converterCollection" id="energyBtn">Energy Converter</button>
+                        <button class="converterCollection" id="areaBtn">Area Converter</button>
                     </div>
                 </ul>
             </section>
 
             <aside class="documentation" aria-labelledby="doc-heading">
-                <h2 id="doc-heading">Documentation</h2>
-                <p>This application allows you to convert between different units of measurement including temperature, mass, length, and time. Select the desired converter from the list to get started.</p>
+                <div class="docContainer">
+                    <h2 id="doc-heading">Documentation</h2>
+                    <p>This application allows you to convert between different units of measurement including temperature, mass, length, and time. Select the desired converter from the list to get started.</p>
+                </div>
+
+                <div class="tempFormContainer">
+                    <form>  
+                        <h1>Temperature Converter</h1>
+                        <input type="number" class="inputBar" id="tempFormContainerInput" placeholder="Enter temperature"><br>
+                        <div class="dropDownContainer">
+                            <label for="tempFormContainerUnitFrom">From</label>
+                            <select id="tempFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="°C">Celsius (°C)</option>
+                                <option value="°F">Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                                <option value="°R">Rankine (°R)</option>
+                            </select>
+
+                            <label for="tempFormContainerUnitTo">To</label>
+                            <select id="tempFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="°C">Celsius (°C)</option>
+                                <option value="°F">Fahrenheit (°F)</option>
+                                <option value="K">Kelvin (K)</option>
+                                <option value="°R">Rankine (°R)</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="tempFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="tempFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                                <input type="checkbox" id="tempFormContainerSciNotation">
+                                <label for="tempFormContainerSciNotation" id="tempFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="tempFormContainerResult">select a unit</p>
+                        </div>
+                    </form>
+                </div>   
+                
+                <div class="massFormContainer">
+                    <form>
+                        <h1>Mass Unit Converter</h1>
+                        <input type="number" class="inputBar" id="massFormContainerInputSI" placeholder="Enter Mass"><br>
+                        <div class="dropDownContainer">
+                            <label for="massFormContainerUnitFrom">From</label>
+                            <select id="massFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="ug">Micrograms</option>
+                                <option value="mg">Miligrams</option>
+                                <option value="g">Grams</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="ton">Metric Tons</option>
+                                <option value="mgton">Megatons</option>
+                                <option value="ggton">Gigatons</option>
+                                <option value="trton">Teratons</option>
+                            </select>
+
+                            <label for="massFormContainerUnitTo">To</label>
+                            <select id="massFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="ug">Micrograms</option>
+                                <option value="mg">Miligrams</option>
+                                <option value="g">Grams</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="ton">Metric Tons</option>
+                                <option value="mgton">Megatons</option>
+                                <option value="ggton">Gigatons</option>
+                                <option value="trton">Teratons</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="massFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="massFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="massFormContainerSciNotation">
+                            <label for="massFormContainerSciNotation" id="massFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="massFormContainerResultSI">select a unit</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="lengthFormContainer">
+                    <form>
+                        <h1>Length Unit Converter</h1>
+                        <input type="number" class="inputBar" id="lengthFormContainerInput" placeholder="Enter Length"><br>
+                        <div class="dropDownContainer">
+                            <label for="lengthFormContainerUnitFrom">From</label>
+                            <select id="lengthFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="nm">Nanometers</option>
+                                <option value="um">Micrometers</option>
+                                <option value="mm">Millimeters</option>
+                                <option value="cm">Centimeters</option>
+                                <option value="in">Inches</option>
+                                <option value="ft">Feet</option>
+                                <option value="yd">Yards</option>
+                                <option value="m">Meters</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mi">Miles</option>
+                                <option value="nmi">Nautical Miles</option>
+                                <option value="AU">Astronomical Units</option>
+                                <option value="lyr">Light Years</option>
+                                <option value="pc">Parsecs</option>
+                            </select>
+
+                            <label for="lengthFormContainerUnitTo">To</label>
+                            <select id="lengthFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="nm">Nanometers</option>
+                                <option value="um">Micrometers</option>
+                                <option value="mm">Millimeters</option>
+                                <option value="cm">Centimeters</option>
+                                <option value="in">Inches</option>
+                                <option value="ft">Feet</option>
+                                <option value="yd">Yards</option>
+                                <option value="m">Meters</option>
+                                <option value="km">Kilometers</option>
+                                <option value="mi">Miles</option>
+                                <option value="nmi">Nautical Miles</option>
+                                <option value="AU">Astronomical Units</option>
+                                <option value="lyr">Light Years</option>
+                                <option value="pc">Parsecs</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="lengthFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="lengthFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="lengthFormContainerSciNotation">
+                            <label for="lengthFormContainerSciNotation" id="lengthFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="lengthFormContainerResult">select a unit</p>
+                        </div>
+                    </form>
+                </div>    
+                
+                <div class="timeFormContainer">
+                    <form>  
+                        <h1>Time Converter</h1>
+                        <input type="number" class="inputBar" id="timeFormContainerInput" placeholder="Enter Time"><br>
+                        <div class="dropDownContainer">
+                            <label for="timeFormContainerUnitFrom">From</label>
+                            <select id="timeFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="ms">Milliseconds</option>
+                                <option value="s">Seconds</option>
+                                <option value="min">Minutes</option>
+                                <option value="hr">Hours</option>
+                                <option value="d">Days</option>
+                                <option value="w">Weeks</option>
+                                <option value="mth">Months</option>
+                                <option value="yr">Years</option>
+                            </select>
+
+                            <label for="timeFormContainerUnitTo">To</label>
+                            <select id="timeFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="ms">Milliseconds</option>
+                                <option value="s">Seconds</option>
+                                <option value="min">Minutes</option>
+                                <option value="hr">Hours</option>
+                                <option value="d">Days</option>
+                                <option value="w">Weeks</option>
+                                <option value="mth">Months</option>
+                                <option value="yr">Years</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="timeFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="timeFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                                <input type="checkbox" id="timeFormContainerSciNotation">
+                                <label for="timeFormContainerSciNotation" id="timeFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="timeFormContainerResult">select a unit</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="volumeFormContainer">
+                    <form>
+                        <h1>Volume Unit Converter</h1>
+                        <input type="number" class="inputBar" id="volumeFormContainerInput" placeholder="Enter Volume"><br>
+                        <div class="dropDownContainer">
+                            <label for="volumeFormContainerUnitFrom">From</label>
+                            <select id="volumeFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="nm^3">Cubic Nanometers</option>
+                                <option value="um^3">Cubic Micrometers</option>
+                                <option value="mm^3">Cubic Millimeters</option>
+                                <option value="cm^3">Cubic Centimeters</option>
+                                <option value="in^3">Cubic Inches</option>
+                                <option value="ft^3">Cubic Feet</option>
+                                <option value="yd^3">Cubic Yards</option>
+                                <option value="m^3">Cubic Meters</option>
+                                <option value="km^3">Cubic Kilometers</option>
+                                <option value="mi^3">Cubic Miles</option>
+                                <option value="ug">US Gallons</option>
+                                <option value="ml">Milliliters</option>
+                                <option value="l">Liters/Cubic Decimeters</option>
+                                <option value="kgl">Kiloliters</option>
+                            </select>
+
+                            <label for="volumeFormContainerUnitTo">To</label>
+                            <select id="volumeFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="nm^3">Cubic Nanometers</option>
+                                <option value="um^3">Cubic Micrometers</option>
+                                <option value="mm^3">Cubic Millimeters</option>
+                                <option value="cm^3">Cubic Centimeters</option>
+                                <option value="in^3">Cubic Inches</option>
+                                <option value="ft^3">Cubic Feet</option>
+                                <option value="yd^3">Cubic Yards</option>
+                                <option value="m^3">Cubic Meters</option>
+                                <option value="km^3">Cubic Kilometers</option>
+                                <option value="mi^3">Cubic Miles</option>
+                                <option value="ug">US Gallons</option>
+                                <option value="ml">Milliliters</option>
+                                <option value="l">Liters/Cubic Decimeters</option>
+                                <option value="kgl">Kiloliters</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="volumeFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="volumeFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="volumeFormContainerSciNotation">
+                            <label for="volumeFormContainerSciNotation" id="volumeFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="volumeFormContainerResult">select a unit</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="speedFormContainer">
+                    <form>
+                        <h1>Speed Unit Converter</h1>
+                        <input type="number" class="inputBar" id="speedFormContainerInput1" placeholder="Enter Length">
+                        <input type="number" class="inputBar" id="speedFormContainerInput2" placeholder="Enter Time"><br>
+                        
+                        <div class="dropDownContainer">
+                            <div classs="fromUnitContainer">
+                                <label for="speedFormContainerDistanceUnitFrom">From</label>
+                                <select id="speedFormContainerDistanceUnitFrom">
+                                    <option value="">--Select Unit--</option>
+                                    <option value="um">Micrometers</option>
+                                    <option value="mm">Millimeters</option>
+                                    <option value="cm">Centimeters</option>
+                                    <option value="m">Meters</option>
+                                    <option value="km">Kilometers</option>
+                                    <option value="mi">Miles</option>                    
+                                </select>
+                                <select id="speedFormContainerTimeUnitFrom">
+                                    <option value="">--Select Unit--</option>
+                                    <option value="ms">Milliseconds</option>
+                                    <option value="s">Seconds</option>
+                                    <option value="min">Minutes</option>
+                                    <option value="hr">Hours</option>
+                                    <option value="d">Days</option>
+                                    <option value="yr">Years</option>
+                                </select>
+                            </div>
+                            <div class="toUnitContainer">
+                                <label for="speedFormContainerDistanceUnitTo">To</label>
+                                <select id="speedFormContainerDistanceUnitTo">
+                                    <option value="">--Select Unit--</option>
+                                    <option value="um">Micrometers</option>
+                                    <option value="mm">Millimeters</option>
+                                    <option value="cm">Centimeters</option>
+                                    <option value="m">Meters</option>
+                                    <option value="km">Kilometers</option>
+                                    <option value="mi">Miles</option>                    
+                                </select>
+                                <select id="speedFormContainerTimeUnitTo">
+                                    <option value="">--Select Unit--</option>
+                                    <option value="ms">Milliseconds</option>
+                                    <option value="s">Seconds</option>
+                                    <option value="min">Minutes</option>
+                                    <option value="hr">Hours</option>
+                                    <option value="d">Days</option>
+                                    <option value="yr">Years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="speedFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="speedFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="speedFormContainerSciNotation">
+                            <label for="speedFormContainerSciNotation" id="speedFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        
+                        <div class="outputContainer">
+                            <p id="speedFormContainerResult">select a unit</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="energyFormContainer">
+                    <form>
+                        <h1>Energy Unit Converter</h1>
+                        <input type="number" class="inputBar" id="energyFormContainerInput" placeholder="Enter Energy"><br>
+                        <div class="dropDownContainer">
+                            <label for="energyFormContainerUnitFrom">From</label>
+                            <select id="energyFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="J">Joule (J)</option>
+                                <option value="kJ">Kilojoule (kJ)</option>
+                                <option value="cal">Calorie (cal)</option>
+                                <option value="kcal">Kilocalorie (kcal)</option>
+                                <option value="Wh">Watt-hour (Wh)</option>
+                                <option value="kWh">Kilowatt-hour (kWh)</option>
+                                <option value="eV">Electronvolt (eV)</option>
+                            </select>
+
+                            <label for="energyFormContainerUnitTo">To</label>
+                            <select id="energyFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="J">Joule (J)</option>
+                                <option value="kJ">Kilojoule (kJ)</option>
+                                <option value="cal">Calorie (cal)</option>
+                                <option value="kcal">Kilocalorie (kcal)</option>
+                                <option value="Wh">Watt-hour (Wh)</option>
+                                <option value="kWh">Kilowatt-hour (kWh)</option>
+                                <option value="eV">Electronvolt (eV)</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="energyFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="energyFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="energyFormContainerSciNotation">
+                            <label for="energyFormContainerSciNotation" id="energyFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="energyFormContainerResult">select a unit</p>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="areaFormContainer">
+                    <form>
+                        <h1>Area Unit Converter</h1>
+                        <input type="number" class="inputBar" id="areaFormContainerInput" placeholder="Enter Area"><br>
+                        <div class="dropDownContainer">
+                            <label for="areaFormContainerUnitFrom">From</label>
+                            <select id="areaFormContainerUnitFrom">
+                                <option value="">--Select Unit--</option>
+                                <option value="nm^2">Square Nanometers</option>
+                                <option value="um^2">Square Micrometers</option>
+                                <option value="mm^2">Square Millimeters</option>
+                                <option value="cm^2">Square Centimeters</option>
+                                <option value="in^2">Square Inches</option>
+                                <option value="ft^2">Square Feet</option>
+                                <option value="yd^2">Square Yards</option>
+                                <option value="m^2">Square Meters</option>
+                                <option value="km^2">Square Kilometers</option>
+                                <option value="mi^2">Square Miles</option>
+                                <option value="ac">Acres</option>
+                                <option value="ha">Hectares</option>
+                                <option value="tr. wa">Tarang Wa</option>
+                                <option value="rai">Rai</option>
+                            </select>
+
+                            <label for="areaFormContainerUnitTo">To</label>
+                            <select id="areaFormContainerUnitTo">
+                                <option value="">--Select Unit--</option>
+                                <option value="nm^2">Square Nanometers</option>
+                                <option value="um^2">Square Micrometers</option>
+                                <option value="mm^2">Square Millimeters</option>
+                                <option value="cm^2">Square Centimeters</option>
+                                <option value="in^2">Square Inches</option>
+                                <option value="ft^2">Square Feet</option>
+                                <option value="yd^2">Square Yards</option>
+                                <option value="m^2">Square Meters</option>
+                                <option value="km^2">Square Kilometers</option>
+                                <option value="mi^2">Square Miles</option>
+                                <option value="ac">Acres</option>
+                                <option value="ha">Hectares</option>
+                                <option value="tr. wa">Tarang Wa</option>
+                                <option value="rai">Rai</option>
+                            </select>
+                        </div>
+                        <div class="buttonContainer">
+                            <button type="button" id="areaFormContainerConvertBtn">Convert</button>
+                            <button type="button" id="areaFormContainerClearBtn">Clear</button>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="areaFormContainerSciNotation">
+                            <label for="areaFormContainerSciNotation" id="areaFormContainerLabel">Make it Scientific Notation</label>
+                        </div>
+                        <div class="outputContainer">
+                            <p id="areaFormContainerResult">select a unit</p>
+                        </div>
+                    </form>
+                </div>
             </aside>
         </main>
 
@@ -66,6 +453,26 @@
         </footer>
     </div>
 
+    <audio id="click-sound">
+        <source src="harikitte-ikou-kitasan-black.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="click-sound-clear">
+        <source src="mambo-sem-som-de-fundo.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script src="homepage.js"></script>
+    <script src="content.js"></script>
+    <script src="mass.js"></script>
+    <script src="length-ui.js"></script>
+    <script src="length.js"></script>
+    <script src="time-ui.js"></script>
+    <script src="time.js"></script>
+    <script src="volume.js"></script>
+    <script type="module" src="speed.js"></script>
+    <script src="energy.js"></script>
+    <script src="area.js"></script>
+    <script src="nav-button-speed.js"></script>
 </body>
 </html>

@@ -1,8 +1,5 @@
 // Dropdown functionality
 
-function toggleDropdown() {
-    document.getElementById("mydropdown").classList.toggle("show");
-}
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn') && !event.target.matches('#searchInput')) {
@@ -20,15 +17,15 @@ function filterFunction() {
     const input = document.getElementById("searchInput");
     const filter = input.value.toLowerCase();
     const div = document.getElementById("mydropdown");
-    const a = div.getElementsByTagName("a");
-    for (let i = 0; i < a.length; i++) {
-        txtValue = a[i].textContent || a[i].innerText;
+    const buttons = div.getElementsByClassName("converterCollection");
+    for (let i = 0; i < buttons.length; i++) {
+        txtValue = buttons[i].textContent || buttons[i].innerText;
         if (txtValue.toLowerCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
+            buttons[i].style.display = "";
         } else {
-            a[i].style.display = "none";
+            buttons[i].style.display = "none";
+        }
     }
-  }
 }
 
 // Add click handler after DOM is ready to ensure the button exists
